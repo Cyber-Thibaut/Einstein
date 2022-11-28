@@ -99,9 +99,9 @@ async def pecresse(ctx):
     await ctx.respond(embed=embed) # respond the embed with some text
 
 @bot.slash_command(name="gulag")
-async def gulag(ctx):
+async def gulag(ctx, message: discord.Option(str)):
     embed = discord.Embed(
-        title="MESDAMES ET MESSIEURS LE GULAG EXPRESS EST SUPPRIMÉ JUSQU'À NOUVEL ORDRE",
+        title=message,
         description="Le gulag express, EN VOITUUUUURE !",
         color=0x56B3E5, 
     )
@@ -200,7 +200,7 @@ async def alex2(ctx):
 
 @bot.slash_command(name="say")
 async def say(ctx, message: discord.Option(str)):
-    await ctx.channel.respond(f"{message}")
+    await ctx.respond(message)
 
 @bot.command(name='hello')
 async def hello(ctx):
