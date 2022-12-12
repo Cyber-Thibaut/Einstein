@@ -37,7 +37,8 @@ async def spot(ctx):
             description = '📷',
             color = discord.Color.from_rgb(16, 108, 138)
         )
-        message = await ctx.respond(embed=embed)
+        await ctx.respond("Spot en cours de chargement", ephemeral=True, delete_after=3)
+        message = await ctx.channel.send(embed=embed)
         
         #if os.path.exists('spot.png'):
         #    os.remove("spot.png")
@@ -105,7 +106,7 @@ async def gulag(ctx, message: discord.Option(str)):
         description="Le gulag express, EN VOITUUUUURE !",
         color=0x56B3E5, 
     )
-    embed.set_author(name="Valérie Pécresse", icon_url="https://images-ext-1.discordapp.net/external/PMCR648tV3gBBKB_mNbEGIXj1XKIXFdYVKmJbGLzKbg/https/i.imgur.com/f8wFfNZ.png")
+    embed.set_author(name="SNCF InfoTrafic", icon_url="https://cdn.discordapp.com/attachments/1044705168534556755/1046465897201672302/Design_sans_titre.png")
     embed.set_image(url="https://cdn.discordapp.com/attachments/1034492018346446848/1043975164016209990/D1E_qGuXgAA0SQH.png")
     await ctx.respond(embed=embed) # respond the embed with some text
 
@@ -229,7 +230,7 @@ async def météo(ctx):
         color=0xAB0013, # Pycord provides a class with default colors you can choose from
     )
     embed.set_author(name="Alex&Amélie", icon_url="https://s2.qwant.com/thumbr/0x380/5/4/cba536a7e46cd2306fcf149f11574d79452dfcb824358fd855cacdcf0ffaf3/masque-singe-.jpg?u=https%3A%2F%2Fwww.ambiance-party.be%2Fwp-content%2Fuploads%2F2020%2F02%2Fmasque-singe-.jpg&q=0&b=1&p=0&a=0")
-    embed.set_image(url="https://cdn.discordapp.com/attachments/1044705168534556755/1046497702965416047/Video_sans_titre_Realisee_avec_Clipchamp.gif")
+    embed.set_image(url="https://cdn.discordapp.com/attachments/1038565884404432917/1051859881319206912/Video_sans_titre_Realisee_avec_Clipchamp_1.gif")
     await ctx.respond("", embed=embed) 
       
 @bot.slash_command(name="spotgm")
