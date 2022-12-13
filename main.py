@@ -9,69 +9,12 @@ from random import choice
 intents = discord.Intents.default()
 intents.message_content = True
 version = "1.0"
-from selenium import webdriver
-import geckodriver_autoinstaller
-
-
-#geckodriver_autoinstaller.install()  # Check if the current version of geckodriver exists
-                                     # and if it doesn't exist, download it automatically,
-                                     # then add geckodriver to path
-
-driver = webdriver.Firefox()
-#driver.get("http://www.python.org")
-#assert "Python" in driver.title
-
-
- # load all the variables from the env file
 
 bot = commands.Bot()
 
-print ("Firefox ✔")
 liste = ['Absence de conducteur', 'Régulation Trafic', 'Panne Aiguillage', 'Panne Train Ligne', 'Retard lors du Trajet Précédent', 'Travaux sur la voie je peux pas écraser les ouvriers donc bah tu patiente et TU FERME TA BOUCHE !', 'Suspension trafic', 'Attente Correspondance', 'Arrêt Voyageur Prolongé', 'Intervention Police A Bord', "Pablo Escobar est votre conducteur aujourd'hui entre Lyon et Paris profitez en ;)", "La porte arrière de votre train ne sera pas en face du quai en gare de Tarare, merci de vous dirigez vers un autre accès si vous déscendez dans cette gare", "En raison d'une régulation, votre Intercité aura un retard de 15 minutes pour laisser passer un TGV", "Le menu de la cantine est Burger Frites aujourd'hui", "Il pleut sur Clermont", "Les débats sont interdits dans nos trains", "Ouverture de la gare du Listenbourg dirigée par Adrien", 'En raison de la traversée de la rue du 1er mai par les cartons migrateur, la ligne 1 est déviée.', "En raison d'un séisme de magnitude 10 due à la faim de votre conducteur, le train à déraillé", 'Le Conducteur Alex Roule comme un crabe sur les voies, pour plus de sécurité aucun autre train ne circule', 'destruction du train devant', 'divagation de chèvres', 'Retard à la préparation de la boîte repas', 'Les plats de la cantine sont froids', 'Tout est fermé','La pizza du conducteur est arrivée en retard']
 listealex = ['https://media.tenor.com/ye189ndlDpkAAAAM/patrick-sebastien-bravo.gif','https://media.tenor.com/UAGeMI4qk54AAAAM/sardinha.gif','https://media.tenor.com/mxJCaasEDcQAAAAM/pokemon-chammal.gif','https://media.tenor.com/nCCiMfXAAssAAAAM/tpmp-touche-pas-a-mon-poste.gif','https://tenor.com/view/car-fail-mechanic-ouch-alarm-gif-12178274','https://tenor.com/view/viralhog-fire-towing-hot-ride-flaming-gif-12840432']
 
-@bot.slash_command(name="spot")
-async def spot(ctx):
-    try:
-        embed = discord.Embed(
-            description = '📷',
-            color = discord.Color.from_rgb(16, 108, 138)
-        )
-        await ctx.respond("Spot en cours de chargement", ephemeral=True, delete_after=3)
-        message = await ctx.channel.send(embed=embed)
-        
-        #if os.path.exists('spot.png'):
-        #    os.remove("spot.png")
-        
-        driver.set_window_size(1200, 484) # set the window size that you need 
-        driver.get('https://mylines.fr/luca/spot')
-        driver.save_screenshot('spot.png')
-
-        with open('spot.png', "rb") as fh:
-            f = discord.File(fh, filename='spot.png')
-        await ctx.send(file=f)
-
-        await message.delete()
-    #    os.remove("spot.png")
-    except Exception as e:
-        await printerror(e, ctx)
-        
-#en cas d'erreur
-async def printerror(e, ctx):
-
-    exc_type, exc_obj, tb = sys.exc_info()
-    f = tb.tb_frame
-    lineno = tb.tb_lineno
-    filename = f.f_code.co_filename
-    linecache.checkcache(filename)
-    line = linecache.getline(filename, lineno, f.f_globals)
-    print('EXCEPTION IN ({}, LINE {} "{}"): {}'.format(filename, lineno, line.strip(), exc_obj))
-
-    embed = discord.Embed(
-        description = ':red_circle: Quelque chose s\'est mal passé',
-        color = discord.Color.from_rgb(215, 2, 2)
-    )    
-    #await ctx.channel.send(embed=embed)
 
 @bot.listen() # Le listener comprend que tu vas écouter sur le on_message, et va executer la fonction à chaque message du tchat
 async def on_message(message):
