@@ -222,16 +222,113 @@ async def add(ctx, first: discord.Option(int), second: discord.Option(int)):
   sum = first + second
   await ctx.respond(f"The sum of {first} and {second} is {sum}.")
 
-@bot.slash_command(name="météo")  # create a user command for the supplied guilds
-async def météo(ctx): 
-    embed = discord.Embed(
-        title="Alerte météo",
-        description="",
-        color=0xAB0013, # Pycord provides a class with default colors you can choose from
+class vert(discord.ui.Modal):
+    def __init__(self, *args, **kwargs) -> None:
+        super().__init__(*args, **kwargs)
+
+        self.add_item(discord.ui.InputText(label="Titre de l'alerte"))
+        self.add_item(discord.ui.InputText(label="Détail de l'alerte", style=discord.InputTextStyle.long))
+
+    async def callback(self, interaction: discord.Interaction):
+        embed = discord.Embed(
+            title="Alerte Verte", 
+            color = discord.Color.from_rgb(0,174,88))
+        embed.add_field(name=self.children[0].value, value=self.children[1].value)
+        embed.set_author(name="Alex&Amélie", icon_url="https://s2.qwant.com/thumbr/0x380/5/4/cba536a7e46cd2306fcf149f11574d79452dfcb824358fd855cacdcf0ffaf3/masque-singe-.jpg?u=https%3A%2F%2Fwww.ambiance-party.be%2Fwp-content%2Fuploads%2F2020%2F02%2Fmasque-singe-.jpg&q=0&b=1&p=0&a=0"),
+        embed.set_image(url="https://cdn.discordapp.com/attachments/1038565884404432917/1051859881319206912/Video_sans_titre_Realisee_avec_Clipchamp_1.gif")
+        await bot.get_channel(int(1038565884404432917)).send(embeds=[embed])
+        await bot.respond("Modal envoyé ^^", ephemeral=True, delete_after=3)
+
+class jaune(discord.ui.Modal):
+    def __init__(self, *args, **kwargs) -> None:
+        super().__init__(*args, **kwargs)
+
+        self.add_item(discord.ui.InputText(label="Titre de l'alerte"))
+        self.add_item(discord.ui.InputText(label="Détail de l'alerte", style=discord.InputTextStyle.long))
+
+    async def callback(self, interaction: discord.Interaction):
+        embed = discord.Embed(
+            title="Alerte Jaune", 
+            color = discord.Color.from_rgb(233,236,107))
+        embed.add_field(name=self.children[0].value, value=self.children[1].value)
+        embed.set_author(name="Alex&Amélie", icon_url="https://s2.qwant.com/thumbr/0x380/5/4/cba536a7e46cd2306fcf149f11574d79452dfcb824358fd855cacdcf0ffaf3/masque-singe-.jpg?u=https%3A%2F%2Fwww.ambiance-party.be%2Fwp-content%2Fuploads%2F2020%2F02%2Fmasque-singe-.jpg&q=0&b=1&p=0&a=0"),
+        embed.set_image(url="https://cdn.discordapp.com/attachments/1038565884404432917/1051859881319206912/Video_sans_titre_Realisee_avec_Clipchamp_1.gif")
+        await bot.get_channel(int(1038565884404432917)).send(embeds=[embed])
+        await interaction.response.send_message("Modal envoyé ^^", ephemeral=True, delete_after=3)
+
+class orange(discord.ui.Modal):
+    def __init__(self, *args, **kwargs) -> None:
+        super().__init__(*args, **kwargs)
+
+        self.add_item(discord.ui.InputText(label="Titre de l'alerte"))
+        self.add_item(discord.ui.InputText(label="Détail de l'alerte", style=discord.InputTextStyle.long))
+
+    async def callback(self, interaction: discord.Interaction):
+        embed = discord.Embed(
+            title="Alerte Orange", 
+            color = discord.Color.from_rgb(239,190,125))
+        embed.add_field(name=self.children[0].value, value=self.children[1].value)
+        embed.set_author(name="Alex&Amélie", icon_url="https://s2.qwant.com/thumbr/0x380/5/4/cba536a7e46cd2306fcf149f11574d79452dfcb824358fd855cacdcf0ffaf3/masque-singe-.jpg?u=https%3A%2F%2Fwww.ambiance-party.be%2Fwp-content%2Fuploads%2F2020%2F02%2Fmasque-singe-.jpg&q=0&b=1&p=0&a=0"),
+        embed.set_image(url="https://cdn.discordapp.com/attachments/1038565884404432917/1051859881319206912/Video_sans_titre_Realisee_avec_Clipchamp_1.gif")
+        await bot.get_channel(int(1038565884404432917)).send(embeds=[embed])
+        await bot.respond("Modal envoyé ^^", ephemeral=True, delete_after=3)
+
+class rouge(discord.ui.Modal):
+    def __init__(self, *args, **kwargs) -> None:
+        super().__init__(*args, **kwargs)
+
+        self.add_item(discord.ui.InputText(label="Titre de l'alerte"))
+        self.add_item(discord.ui.InputText(label="Détail de l'alerte", style=discord.InputTextStyle.long))
+
+    async def callback(self, interaction: discord.Interaction):
+        embed = discord.Embed(
+            title="Alerte Rouge", 
+            color = discord.Color.from_rgb(255,109,106))
+        embed.add_field(name=self.children[0].value, value=self.children[1].value)
+        embed.set_author(name="Alex&Amélie", icon_url="https://s2.qwant.com/thumbr/0x380/5/4/cba536a7e46cd2306fcf149f11574d79452dfcb824358fd855cacdcf0ffaf3/masque-singe-.jpg?u=https%3A%2F%2Fwww.ambiance-party.be%2Fwp-content%2Fuploads%2F2020%2F02%2Fmasque-singe-.jpg&q=0&b=1&p=0&a=0"),
+        embed.set_image(url="https://cdn.discordapp.com/attachments/1038565884404432917/1051859881319206912/Video_sans_titre_Realisee_avec_Clipchamp_1.gif")
+        await bot.get_channel(int(1038565884404432917)).send(embeds=[embed])
+        await bot.respond("Modal envoyé ^^", ephemeral=True, delete_after=3)
+
+class MyView(discord.ui.View):
+    @discord.ui.select( # the decorator that lets you specify the properties of the select menu
+        placeholder = "Quel niveau d'alerte ?", # the placeholder text that will be displayed if nothing is selected
+        min_values = 1, # the minimum number of values that must be selected by the users
+        max_values = 1, # the maximum number of values that can be selected by the users
+        options = [ # the list of options from which users can choose, a required field
+            discord.SelectOption(
+                label="Vert",
+                description="Chef c'est calme ce soir !"
+            ),
+            discord.SelectOption(
+                label="Jaune",
+                description="Oh coquinou tu m'existe"
+            ),
+            discord.SelectOption(
+                label="Orange",
+                description="Sortez couvert !"
+            ),
+            discord.SelectOption(
+                label="Rouge",
+                description="Ouh Pinaise !"
+            )
+        ]
     )
-    embed.set_author(name="Alex&Amélie", icon_url="https://s2.qwant.com/thumbr/0x380/5/4/cba536a7e46cd2306fcf149f11574d79452dfcb824358fd855cacdcf0ffaf3/masque-singe-.jpg?u=https%3A%2F%2Fwww.ambiance-party.be%2Fwp-content%2Fuploads%2F2020%2F02%2Fmasque-singe-.jpg&q=0&b=1&p=0&a=0")
-    embed.set_image(url="https://cdn.discordapp.com/attachments/1038565884404432917/1051859881319206912/Video_sans_titre_Realisee_avec_Clipchamp_1.gif")
-    await ctx.respond("", embed=embed) 
+    async def select_callback(self, select, interaction): # the function called when the user is done selecting options
+        if select.values[0]=="Vert":
+            modal = vert(title="Modal via Slash Command")
+        if select.values[0]=="Jaune":
+            modal = jaune(title="Modal via Slash Command")
+        if select.values[0]=="Orange":
+            modal = orange(title="Modal via Slash Command")
+        if select.values[0]=="Rouge":
+            modal = rouge(title="Modal via Slash Command")
+        await interaction.response.send_modal(modal)
+
+
+@bot.slash_command(name="météo")
+async def flavor(ctx):
+    await ctx.respond("Quel niveau d'alerte ?", view=MyView(), ephemeral=True, delete_after=3)
       
 @bot.slash_command(name="spotgm")
 async def spotgm(ctx):
