@@ -316,13 +316,13 @@ class MyView(discord.ui.View):
     )
     async def select_callback(self, select, interaction): # the function called when the user is done selecting options
         if select.values[0]=="Vert":
-            modal = vert(title="Modal via Slash Command")
+            modal = vert(title="Crée le bulletin météo")
         if select.values[0]=="Jaune":
-            modal = jaune(title="Modal via Slash Command")
+            modal = jaune(title="Crée le bulletin météo")
         if select.values[0]=="Orange":
-            modal = orange(title="Modal via Slash Command")
+            modal = orange(title="Crée le bulletin météo")
         if select.values[0]=="Rouge":
-            modal = rouge(title="Modal via Slash Command")
+            modal = rouge(title="Crée le bulletin météo")
         await interaction.response.send_modal(modal)
 
 
