@@ -494,8 +494,8 @@ class rougeit(discord.ui.Modal):
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
 
-        self.add_item(discord.ui.InputText(label="Titre de l'alerte"))
         self.add_item(discord.ui.InputText(label="Région concernée"))
+        self.add_item(discord.ui.InputText(label="Titre de l'alerte"))
         self.add_item(discord.ui.InputText(label="Détail de l'alerte", style=discord.InputTextStyle.long))
 
     async def callback(self, interaction: discord.Interaction):
