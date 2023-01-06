@@ -6,9 +6,10 @@ import os # default module
 from dotenv import load_dotenv
 import linecache
 from random import choice
+
 intents = discord.Intents.default()
 intents.message_content = True
-version = "1.0"
+version = "1.1"
 from selenium import webdriver
 import geckodriver_autoinstaller
 
@@ -24,7 +25,7 @@ driver = webdriver.Firefox()
 
  # load all the variables from the env file
 
-bot = commands.Bot()
+bot = discord.Bot()
 
 print ("Firefox ✔")
 liste = ['Absence de conducteur', 'Régulation Trafic', 'Panne Aiguillage', 'Panne Train Ligne', 'Retard lors du Trajet Précédent', 'Travaux sur la voie je peux pas écraser les ouvriers donc bah tu patiente et TU FERME TA BOUCHE !', 'Suspension trafic', 'Attente Correspondance', 'Arrêt Voyageur Prolongé', 'Intervention Police A Bord', "Pablo Escobar est votre conducteur aujourd'hui entre Lyon et Paris profitez en ;)", "La porte arrière de votre train ne sera pas en face du quai en gare de Tarare, merci de vous dirigez vers un autre accès si vous déscendez dans cette gare", "En raison d'une régulation, votre Intercité aura un retard de 15 minutes pour laisser passer un TGV", "Le menu de la cantine est Burger Frites aujourd'hui", "Il pleut sur Clermont", "Les débats sont interdits dans nos trains", "Ouverture de la gare du Listenbourg dirigée par Adrien", 'En raison de la traversée de la rue du 1er mai par les cartons migrateur, la ligne 1 est déviée.', "En raison d'un séisme de magnitude 10 due à la faim de votre conducteur, le train à déraillé", 'Le Conducteur Alex Roule comme un crabe sur les voies, pour plus de sécurité aucun autre train ne circule', 'destruction du train devant', 'divagation de chèvres', 'Retard à la préparation de la boîte repas', 'Les plats de la cantine sont froids', 'Tout est fermé','La pizza du conducteur est arrivée en retard']
@@ -325,117 +326,6 @@ class météo(discord.ui.View):
             modal = rougem(title="Crée le bulletin météo")
         await interaction.response.send_modal(modal)
 
-@bot.slash_command(name="météo")
-async def flavor(ctx):
-    await ctx.respond("Quel niveau d'alerte ?", view=météo(), ephemeral=True, delete_after=3)
-
-class vertm(discord.ui.Modal):
-    def __init__(self, *args, **kwargs) -> None:
-        super().__init__(*args, **kwargs)
-
-        self.add_item(discord.ui.InputText(label="Titre de l'alerte"))
-        self.add_item(discord.ui.InputText(label="Détail de l'alerte", style=discord.InputTextStyle.long))
-
-    async def callback(self, interaction: discord.Interaction):
-        embed = discord.Embed(
-            title="Alerte Verte", 
-            color = discord.Color.from_rgb(0,174,88))
-        embed.add_field(name=self.children[0].value, value=self.children[1].value)
-        embed.set_author(name="Alex&Amélie", icon_url="https://s2.qwant.com/thumbr/0x380/5/4/cba536a7e46cd2306fcf149f11574d79452dfcb824358fd855cacdcf0ffaf3/masque-singe-.jpg?u=https%3A%2F%2Fwww.ambiance-party.be%2Fwp-content%2Fuploads%2F2020%2F02%2Fmasque-singe-.jpg&q=0&b=1&p=0&a=0"),
-        embed.set_image(url="https://cdn.discordapp.com/attachments/1038565884404432917/1051859881319206912/Video_sans_titre_Realisee_avec_Clipchamp_1.gif")
-        await bot.get_channel(int(1038565884404432917)).send(embeds=[embed])
-        await interaction.response.send_message("Modal envoyé ^^", ephemeral=True, delete_after=3)
-
-class jaunem(discord.ui.Modal):
-    def __init__(self, *args, **kwargs) -> None:
-        super().__init__(*args, **kwargs)
-
-        self.add_item(discord.ui.InputText(label="Titre de l'alerte"))
-        self.add_item(discord.ui.InputText(label="Détail de l'alerte", style=discord.InputTextStyle.long))
-
-    async def callback(self, interaction: discord.Interaction):
-        embed = discord.Embed(
-            title="Alerte Jaune", 
-            color = discord.Color.from_rgb(233,236,107))
-        embed.add_field(name=self.children[0].value, value=self.children[1].value)
-        embed.set_author(name="Alex&Amélie", icon_url="https://s2.qwant.com/thumbr/0x380/5/4/cba536a7e46cd2306fcf149f11574d79452dfcb824358fd855cacdcf0ffaf3/masque-singe-.jpg?u=https%3A%2F%2Fwww.ambiance-party.be%2Fwp-content%2Fuploads%2F2020%2F02%2Fmasque-singe-.jpg&q=0&b=1&p=0&a=0"),
-        embed.set_image(url="https://cdn.discordapp.com/attachments/1038565884404432917/1051859881319206912/Video_sans_titre_Realisee_avec_Clipchamp_1.gif")
-        await bot.get_channel(int(1038565884404432917)).send(embeds=[embed])
-        await interaction.response.send_message("Modal envoyé ^^", ephemeral=True, delete_after=3)
-
-class orangem(discord.ui.Modal):
-    def __init__(self, *args, **kwargs) -> None:
-        super().__init__(*args, **kwargs)
-
-        self.add_item(discord.ui.InputText(label="Titre de l'alerte"))
-        self.add_item(discord.ui.InputText(label="Détail de l'alerte", style=discord.InputTextStyle.long))
-
-    async def callback(self, interaction: discord.Interaction):
-        embed = discord.Embed(
-            title="Alerte Orange", 
-            color = discord.Color.from_rgb(239,190,125))
-        embed.add_field(name=self.children[0].value, value=self.children[1].value)
-        embed.set_author(name="Alex&Amélie", icon_url="https://s2.qwant.com/thumbr/0x380/5/4/cba536a7e46cd2306fcf149f11574d79452dfcb824358fd855cacdcf0ffaf3/masque-singe-.jpg?u=https%3A%2F%2Fwww.ambiance-party.be%2Fwp-content%2Fuploads%2F2020%2F02%2Fmasque-singe-.jpg&q=0&b=1&p=0&a=0"),
-        embed.set_image(url="https://cdn.discordapp.com/attachments/1038565884404432917/1051859881319206912/Video_sans_titre_Realisee_avec_Clipchamp_1.gif")
-        await bot.get_channel(int(1038565884404432917)).send(embeds=[embed])
-        await interaction.response.send_message("Modal envoyé ^^", ephemeral=True, delete_after=3)
-
-class rougem(discord.ui.Modal):
-    def __init__(self, *args, **kwargs) -> None:
-        super().__init__(*args, **kwargs)
-
-        self.add_item(discord.ui.InputText(label="Titre de l'alerte"))
-        self.add_item(discord.ui.InputText(label="Détail de l'alerte", style=discord.InputTextStyle.long))
-
-    async def callback(self, interaction: discord.Interaction):
-        embed = discord.Embed(
-            title="Alerte Rouge", 
-            color = discord.Color.from_rgb(255,109,106))
-        embed.add_field(name=self.children[0].value, value=self.children[1].value)
-        embed.set_author(name="Alex&Amélie", icon_url="https://s2.qwant.com/thumbr/0x380/5/4/cba536a7e46cd2306fcf149f11574d79452dfcb824358fd855cacdcf0ffaf3/masque-singe-.jpg?u=https%3A%2F%2Fwww.ambiance-party.be%2Fwp-content%2Fuploads%2F2020%2F02%2Fmasque-singe-.jpg&q=0&b=1&p=0&a=0"),
-        embed.set_image(url="https://cdn.discordapp.com/attachments/1038565884404432917/1051859881319206912/Video_sans_titre_Realisee_avec_Clipchamp_1.gif")
-        await bot.get_channel(int(1038565884404432917)).send(embeds=[embed])
-        await interaction.response.send_message("Modal envoyé ^^", ephemeral=True, delete_after=3)
-
-class météo(discord.ui.View):
-    @discord.ui.select( # the decorator that lets you specify the properties of the select menu
-        placeholder = "Quel niveau d'alerte ?", # the placeholder text that will be displayed if nothing is selected
-        min_values = 1, # the minimum number of values that must be selected by the users
-        max_values = 1, # the maximum number of values that can be selected by the users
-        options = [ # the list of options from which users can choose, a required field
-            discord.SelectOption(
-                label="Vert",
-                description="Chef c'est calme ce soir !"
-            ),
-            discord.SelectOption(
-                label="Jaune",
-                description="Oh coquinou tu m'existe"
-            ),
-            discord.SelectOption(
-                label="Orange",
-                description="Sortez couvert !"
-            ),
-            discord.SelectOption(
-                label="Rouge",
-                description="Ouh Pinaise !"
-            )
-        ]
-    )
-    async def select_callback(self, select, interaction): # the function called when the user is done selecting options
-        if select.values[0]=="Vert":
-            modal = vertm(title="Crée le bulletin météo")
-        if select.values[0]=="Jaune":
-            modal = jaunem(title="Crée le bulletin météo")
-        if select.values[0]=="Orange":
-            modal = orangem(title="Crée le bulletin météo")
-        if select.values[0]=="Rouge":
-            modal = rougem(title="Crée le bulletin météo")
-        await interaction.response.send_modal(modal)
-
-@bot.slash_command(name="météo")
-async def flavor(ctx):
-    await ctx.respond("Quel niveau d'alerte ?", view=météo(), ephemeral=True, delete_after=3)
-
 class vertit(discord.ui.Modal):
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
@@ -509,6 +399,9 @@ class rougeit(discord.ui.Modal):
         await bot.get_channel(int(1035890029093978132)).send(embeds=[embed])
         await interaction.response.send_message("Modal envoyé ^^", ephemeral=True, delete_after=3)
         
+@bot.slash_command(name="météo")
+async def flavor(ctx):
+    await ctx.respond("Quel niveau d'alerte ?", view=météo(), ephemeral=True, delete_after=5)
 
 class infotrafic(discord.ui.View):
     @discord.ui.select( # the decorator that lets you specify the properties of the select menu
@@ -548,36 +441,7 @@ class infotrafic(discord.ui.View):
 @bot.slash_command(name="infotrafic")
 async def flavor(ctx):
     await ctx.respond("Quel niveau d'alerte ?", view=infotrafic(), ephemeral=True, delete_after=5)
-@bot.slash_command(name="spotgm")
-async def spotgm(ctx):
-
-    try:
-        message = await ctx.respond("Spot en préparation")
-        
-        driver.set_window_size(1200, 810)
-        driver.get('https://gare-manager.fr/bot_trafic.php')
-        driver.save_screenshot('spot.png')
-
-        with open('spot.png', "rb") as fh:
-            f = discord.File(fh, filename='spot.png')
-        await ctx.send(file=f)
-        await message.delete()
-    except Exception as e:
-        await printerror(e, ctx)
-
-async def printerror(e, ctx):
-    exc_type, exc_obj, tb = sys.exc_info()
-    f = tb.tb_frame
-    lineno = tb.tb_lineno
-    filename = f.f_code.co_filename
-    linecache.checkcache(filename)
-    line = linecache.getline(filename, lineno, f.f_globals)
-    print('EXCEPTION IN ({}, LINE {} "{}"): {}'.format(filename, lineno, line.strip(), exc_obj))
-
-    embed = discord.Embed(
-        description = ':red_circle: Quelque chose s\'est mal passé',
-        color = discord.Color.from_rgb(215, 2, 2)
-    )    
+    
 @bot.slash_command(name="help")
 async def help(ctx):
     embed=discord.Embed(title="Bonjour je suis Einstein, assistant de la direction du serveur ^^", description="Voici la liste des commandes disponibles")
@@ -595,7 +459,6 @@ async def help(ctx):
     embed.add_field(name="Présidente de la Région Ile-de-France", value="</pecresse:1046436215840321587>", inline=True)
     embed.add_field(name="Message anonyme bonsoir", value="</say:1045103244638179351>", inline=True)
     embed.add_field(name="*ze veut voir des trains qui roulent !*", value="</spot:1046229853533388870>", inline=True)
-    embed.add_field(name="*ze veut voir des trains qui roulent !* bis", value="</spotgm:1046381458383720569>", inline=True)
     embed.add_field(name="oups le compteur est cassé :/ 🥴", value="</mute:1046229853814390867>", inline=True)
     embed.add_field(name="ALERTE MÉTÉO ! *A utiliser qu'en cas d'urgence, tout abus sera sanctionné*", value="</météo:1046544260222165074>", inline=True)
     await ctx.respond(embed=embed)
@@ -644,6 +507,15 @@ async def unban(ctx, user, *reason):
 			return
 	#Ici on sait que lutilisateur na pas ete trouvé
 	await ctx.respond(f"L'utilisateur {user} n'est pas dans la liste des bans")
+@bot.event
+async def on_message_delete(message):
+    if message.channel.id == 1041660576180469852:
+        await message.channel.send(f"Le message de {message.author} a été supprimé 🚨🚨🚨")
+
+@bot.event
+async def on_message_edit(before, after):
+    if before.channel.id == 1041660576180469852:
+        await before.channel.send(f"{before.author} a édité son message 🚨🚨🚨")
 
 @bot.command()
 async def kick(ctx, user : discord.User, *reason):
