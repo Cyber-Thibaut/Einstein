@@ -9,7 +9,7 @@ from random import choice
 
 intents = discord.Intents.default()
 intents.message_content = True
-version = "1.1"
+version = "1.2"
 from selenium import webdriver
 import geckodriver_autoinstaller
 
