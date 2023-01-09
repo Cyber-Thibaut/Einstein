@@ -30,6 +30,7 @@ bot = discord.Bot()
 print ("Firefox ✔")
 liste = ['Absence de conducteur', 'Régulation Trafic', 'Panne Aiguillage', 'Panne Train Ligne', 'Retard lors du Trajet Précédent', 'Travaux sur la voie je peux pas écraser les ouvriers donc bah tu patiente et TU FERME TA BOUCHE !', 'Suspension trafic', 'Attente Correspondance', 'Arrêt Voyageur Prolongé', 'Intervention Police A Bord', "Pablo Escobar est votre conducteur aujourd'hui entre Lyon et Paris profitez en ;)", "La porte arrière de votre train ne sera pas en face du quai en gare de Tarare, merci de vous dirigez vers un autre accès si vous déscendez dans cette gare", "En raison d'une régulation, votre Intercité aura un retard de 15 minutes pour laisser passer un TGV", "Le menu de la cantine est Burger Frites aujourd'hui", "Il pleut sur Clermont", "Les débats sont interdits dans nos trains", "Ouverture de la gare du Listenbourg dirigée par Adrien", 'En raison de la traversée de la rue du 1er mai par les cartons migrateur, la ligne 1 est déviée.', "En raison d'un séisme de magnitude 10 due à la faim de votre conducteur, le train à déraillé", 'Le Conducteur Alex Roule comme un crabe sur les voies, pour plus de sécurité aucun autre train ne circule', 'destruction du train devant', 'divagation de chèvres', 'Retard à la préparation de la boîte repas', 'Les plats de la cantine sont froids', 'Tout est fermé','La pizza du conducteur est arrivée en retard']
 listealex = ['https://media.tenor.com/ye189ndlDpkAAAAM/patrick-sebastien-bravo.gif','https://media.tenor.com/UAGeMI4qk54AAAAM/sardinha.gif','https://media.tenor.com/mxJCaasEDcQAAAAM/pokemon-chammal.gif','https://media.tenor.com/nCCiMfXAAssAAAAM/tpmp-touche-pas-a-mon-poste.gif','https://tenor.com/view/car-fail-mechanic-ouch-alarm-gif-12178274','https://tenor.com/view/viralhog-fire-towing-hot-ride-flaming-gif-12840432']
+boule = ['0', '5', '10', '15', '20', '25', '30', '35', '40', '45', '50', '55', "T'es la pute de la SNCF, 60 pour toi cochon(hein t'aime ça)", '65', '70']
 
 @bot.slash_command(name="spot")
 async def spot(ctx):
@@ -89,15 +90,26 @@ async def ping(ctx):
   await ctx.respond("Pong! 🏓")
 
 # Fun
-@bot.slash_command(name="pecresse", description = "Présidente de la Région Ile-de-France")
-async def pecresse(ctx):
+@bot.slash_command(name="fret-ts", description = "Présidente de la Région Ile-de-France")
+async def fret_ts(ctx):
     embed = discord.Embed(
-        title="Coucou tout le monde ! 👋",
-        description="Vive le bleu, vive le camembert et vive la France ! Ah et bonne journée ;)",
+        title="POV t'es sur la TS",
+        description="oh bah zut tu es derrière un bon gros fret....",
         color=0x56B3E5, 
     )
     embed.set_author(name="Valérie Pécresse", icon_url="https://images-ext-1.discordapp.net/external/PMCR648tV3gBBKB_mNbEGIXj1XKIXFdYVKmJbGLzKbg/https/i.imgur.com/f8wFfNZ.png")
-    embed.set_image(url="https://img.20mn.fr/xBs4WR7oSAOc9bkYvGhEkyk/1200x768_valerie-pecresse-president-de-l-ile-de-france-aux-manettes-d-un-flambant-neuf-rer-ng")
+    embed.set_image(url="https://media.tenor.com/v7LMu3FPybsAAAAM/alcohol-drink-time.gif")
+    await ctx.respond(embed=embed) # respond the embed with some text
+
+@bot.slash_command(name="khôlle-colle", description = "Présidente de la Région Ile-de-France")
+async def collekhôlle(ctx):
+    embed = discord.Embed(
+        title="POV t'es en colle/khôlle",
+        description="bah t'es nul aleop dégage !",
+        color=0x56B3E5, 
+    )
+    embed.set_author(name="Le diable en personne", icon_url="https://images-ext-1.discordapp.net/external/PMCR648tV3gBBKB_mNbEGIXj1XKIXFdYVKmJbGLzKbg/https/i.imgur.com/f8wFfNZ.png")
+    embed.set_image(url="https://media.tenor.com/pr6yj3uZx20AAAAC/vieja-patea-beb%C3%A9patada-javier-fesser.gif")
     await ctx.respond(embed=embed) # respond the embed with some text
 
 @bot.slash_command(name="gulag")
@@ -165,6 +177,17 @@ async def chevres(ctx):
     embed.set_author(name="prout", icon_url="https://images-ext-1.discordapp.net/external/PMCR648tV3gBBKB_mNbEGIXj1XKIXFdYVKmJbGLzKbg/https/i.imgur.com/f8wFfNZ.png")
     embed.set_image(url="https://i.imgur.com/nrMZwCS.gif")
     await ctx.respond("J'ai trouvé le cousin de passe-partout ! Mr Pissepartout 😝",embed=embed)
+
+@bot.slash_command(name = "bouboule", description = "Viens jouer avec ma boule")
+async def bouboule(ctx):
+    embed = discord.Embed(
+        title="Voici le temps de retard qu'aura ton train petit misérable scarabé",
+        description=choice(boule),
+        color=0xAB0013, # Pycord provides a class with default colors you can choose from
+    )
+    embed.set_author(name="la fooooooooooooooooooooooooooooolle nommée SNCF", icon_url="https://s2.qwant.com/thumbr/0x380/5/4/cba536a7e46cd2306fcf149f11574d79452dfcb824358fd855cacdcf0ffaf3/masque-singe-.jpg?u=https%3A%2F%2Fwww.ambiance-party.be%2Fwp-content%2Fuploads%2F2020%2F02%2Fmasque-singe-.jpg&q=0&b=1&p=0&a=0")
+    embed.set_image(url="https://media.tenor.com/u0CSB5Oyh7gAAAAM/ogvhs-crystal-ball.gif")
+    await ctx.respond("", embed=embed) # Send the embed with some text
 
 @bot.slash_command(name="roue_retard", description = "Viens tirer la roue des retards")
 async def retard(ctx):
