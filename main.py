@@ -227,6 +227,15 @@ async def alex2(ctx):
 async def say(ctx, message: discord.Option(str)):
     await ctx.respond(message)
 
+@bot.slash_command(name="grève")
+async def greve(ctx):
+    await ctx.respond("https://tenor.com/view/minions-protest-raised-fist-strike-union-gif-11882264")
+
+@bot.slash_command(name="af")
+async def af(ctx):
+    await ctx.respond("https://tenor.com/view/minions-gif-26398552")
+
+
 @bot.command(name='hello')
 async def hello(ctx):
     await ctx.respond(f"Hello {ctx.author.name}!")
