@@ -4,7 +4,7 @@ import os # default module
 from dotenv import load_dotenv
 from random import choice
 
-version = "1.2"
+version = "1.2.3"
 bot = discord.Bot()
 
 liste = ['Absence de conducteur', 'Régulation Trafic', 'Panne Aiguillage', 'Panne Train Ligne', 'Retard lors du Trajet Précédent', 'Travaux sur la voie je peux pas écraser les ouvriers donc bah tu patiente et TU FERME TA BOUCHE !', 'Suspension trafic', 'Attente Correspondance', 'Arrêt Voyageur Prolongé', 'Intervention Police A Bord', "Pablo Escobar est votre conducteur aujourd'hui entre Lyon et Paris profitez en ;)", "La porte arrière de votre train ne sera pas en face du quai en gare de Tarare, merci de vous dirigez vers un autre accès si vous déscendez dans cette gare", "En raison d'une régulation, votre Intercité aura un retard de 15 minutes pour laisser passer un TGV", "Le menu de la cantine est Burger Frites aujourd'hui", "Il pleut sur Clermont", "Les débats sont interdits dans nos trains", "Ouverture de la gare du Listenbourg dirigée par Adrien", 'En raison de la traversée de la rue du 1er mai par les cartons migrateur, la ligne 1 est déviée.', "En raison d'un séisme de magnitude 10 due à la faim de votre conducteur, le train à déraillé", 'Le Conducteur Alex Roule comme un crabe sur les voies, pour plus de sécurité aucun autre train ne circule', 'destruction du train devant', 'divagation de chèvres', 'Retard à la préparation de la boîte repas', 'Les plats de la cantine sont froids', 'Tout est fermé','La pizza du conducteur est arrivée en retard']
@@ -16,10 +16,31 @@ async def on_message(message):
     if message.content == "quoi":
         await message.channel.respond("feur")
 # démarrage
+funFact = ["L'eau mouille", 
+            "Le feu brule", 
+            "Lorsque vous volez, vous ne touchez pas le sol", 
+            "Mon créateur est >Thibaut#4872", 
+            "Il n'est pas possible d'aller dans l'espace en restant sur terre", 
+            "La terre est ronde",
+            "La moitié de 2 est 1",
+            "69 est un nombre heureux",
+            "Les allemands viennent d'allemagne",
+            "Le coronavirus est un virus se répandant en Europe, en avez vous entendu parler ?",
+            "J'apparais 2 fois dans l'année, a la fin du matin et au début de la nuit, qui suis-je ?",
+            "Le plus grand complot de l'humanité est:",
+            "Pourquoi lisez vous ca ?"]
+
+
+#confirmation bot Allumé
 @bot.event
 async def on_ready():
-    print(f"{bot.user} is ready and online!")
-    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="la version " + version))
+    print(f"Le bot {bot.user.name} est désormais en Ligne")
+    channel = bot.get_channel(1036600574898086030)
+    embed = discord.Embed(title = "Statut du Bot", description = "Je suis désormais en Ligne ! ✅", color=0x10ef00)
+    embed.add_field(name = "Ma version actuelle est la version " + version, value ="")
+    embed.set_footer(text = choice(funFact))
+    await bot.get_channel(int(1036600574898086030)).send(embed = embed)
+    await bot.change_presence(status=discord.Status.idle, activity = discord.Activity(type = discord.ActivityType.watching, name ="la version " + version))
 
 @bot.slash_command(name="ping")
 async def ping(ctx):
@@ -100,7 +121,7 @@ async def pointmeteo(ctx):
 class meteoModal(discord.ui.Modal):
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
-        self.add_item(discord.ui.InputText(label="", style=discord.InputTextStyle.long))
+        self.add_item(discord.ui.InputText(label="Détail de l'info météo", style=discord.InputTextStyle.long))
 
     async def callback(self, interaction: discord.Interaction):
         embed = discord.Embed(
