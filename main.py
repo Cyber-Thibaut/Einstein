@@ -55,6 +55,7 @@ async def fret_ts(ctx):
         description="oh bah zut tu es derrière un bon gros fret....",
         color=0x56B3E5, 
     )
+
     embed.set_author(name="SNCF InfoTrafic", icon_url="https://cdn.discordapp.com/attachments/1044705168534556755/1046465897201672302/Design_sans_titre.png")
     embed.set_image(url="https://cdn.discordapp.com/attachments/1034442895505231883/1075344482716876841/IMG_20230122_174508.jpg")
     await ctx.respond(embed=embed) # respond the embed with some text
