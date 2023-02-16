@@ -55,8 +55,8 @@ async def fret_ts(ctx):
         description="oh bah zut tu es derrière un bon gros fret....",
         color=0x56B3E5, 
     )
-    embed.set_author(name="Valérie Pécresse", icon_url="https://images-ext-1.discordapp.net/external/PMCR648tV3gBBKB_mNbEGIXj1XKIXFdYVKmJbGLzKbg/https/i.imgur.com/f8wFfNZ.png")
-    embed.set_image(url="https://media.tenor.com/v7LMu3FPybsAAAAM/alcohol-drink-time.gif")
+    embed.set_author(name="SNCF InfoTrafic", icon_url="https://cdn.discordapp.com/attachments/1044705168534556755/1046465897201672302/Design_sans_titre.png")
+    embed.set_image(url="https://cdn.discordapp.com/attachments/1034442895505231883/1075344482716876841/IMG_20230122_174508.jpg")
     await ctx.respond(embed=embed) # respond the embed with some text
 
 @bot.slash_command(name="khôlle-colle", description = "Présidente de la Région Ile-de-France")
