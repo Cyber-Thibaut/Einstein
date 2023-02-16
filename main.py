@@ -550,4 +550,4 @@ async def clear(ctx, nombre : int):
         await message.delete()
     await ctx.respond(f'{nombre} message clear')
 load_dotenv()
-bot.run(os.getenv('TOKEN'))
+bot.run(open("token.txt", "r"))
