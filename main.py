@@ -11,6 +11,7 @@ liste = ['Absence de conducteur', 'Régulation Trafic', 'Panne Aiguillage', 'Pan
 listealex = ['https://media.tenor.com/ye189ndlDpkAAAAM/patrick-sebastien-bravo.gif','https://media.tenor.com/UAGeMI4qk54AAAAM/sardinha.gif','https://media.tenor.com/mxJCaasEDcQAAAAM/pokemon-chammal.gif','https://media.tenor.com/nCCiMfXAAssAAAAM/tpmp-touche-pas-a-mon-poste.gif','https://tenor.com/view/car-fail-mechanic-ouch-alarm-gif-12178274','https://tenor.com/view/viralhog-fire-towing-hot-ride-flaming-gif-12840432']
 boule = ['0', '5', '10', '15', '20', '25', '30', '35', '40', '45', '50', '55', "T'es la pute de la SNCF, 60 pour toi cochon(hein t'aime ça)", '65', '70']
 
+
 @bot.listen() # Le listener comprend que tu vas écouter sur le on_message, et va executer la fonction à chaque message du tchat
 async def on_message(message):
     if message.content == "quoi":
@@ -245,7 +246,6 @@ async def add(ctx, first: discord.Option(int), second: discord.Option(int)):
 class vertm(discord.ui.Modal):
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
-
         self.add_item(discord.ui.InputText(label="Titre de l'alerte"))
         self.add_item(discord.ui.InputText(label="Détail de l'alerte", style=discord.InputTextStyle.long))
 
