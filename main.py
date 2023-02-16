@@ -29,8 +29,8 @@ funFact = ["L'eau mouille",
             "Le coronavirus est un virus se répandant en Europe, en avez vous entendu parler ?",
             "J'apparais 2 fois dans l'année, a la fin du matin et au début de la nuit, qui suis-je ?",
             "Le plus grand complot de l'humanité est:",
+            "Tu savais que Lowa est le meilleur dev du monde ?",
             "Pourquoi lisez vous ca ?"]
-
 
 #confirmation bot Allumé
 @bot.event
