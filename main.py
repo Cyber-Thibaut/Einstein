@@ -47,6 +47,26 @@ async def on_ready():
 async def ping(ctx):
   await ctx.respond("Pong! 🏓")
 
+@bot.slash_command(name="classementte")
+async def classementte(ctx):
+    modal = classementmodal(title="Entre le classement de la semaine !")
+    await ctx.response.send_modal(modal)
+
+class classementmodal(discord.ui.Modal):
+    def __init__(self, *args, **kwargs) -> None:
+        super().__init__(*args, **kwargs)
+        self.add_item(discord.ui.InputText(label="Détail du classement", style=discord.InputTextStyle.long))
+
+    async def callback(self, interaction: discord.Interaction):
+        embed = discord.Embed(
+            title="Classement de la semaine", 
+            color=0x034DA2)
+        embed.add_field(name="", value=self.children[0].value)
+        embed.set_author(name="Poudlard&Co", icon_url="https://images.rtl.fr/~c/2000v2000/rtl/www/1329511-minerva-mcgonagall-maggie-smith.jpg"),
+        embed.set_image(url="https://media.tenor.com/m1itqPF42hcAAAAC/10points-gryffindor-richard-harris.gif")
+        message = await bot.get_channel(int(1062738561939550250)).send(embeds=[embed])
+        await interaction.response.send_message("Modal envoyé ^^", ephemeral=True, delete_after=3)
+
 # Fun
 @bot.slash_command(name="fret-ts", description = "Présidente de la Région Ile-de-France")
 async def fret_ts(ctx):
@@ -469,7 +489,7 @@ async def help(ctx):
     embed.add_field(name="Un motif de retard ? ", value="</roue_retard:1046436215840321594>", inline=True)
     embed.add_field(name="Le comportement de ce modérateur est inadmissible", value="</alex:1046436215840321595>", inline=True)
     embed.add_field(name="En cas d'abus de gif, ici tu finira", value="</alex2:1046539059339743272>", inline=True)
-    embed.add_field(name="Un joli poto", value="</bellebitte:1046436215840321589>", inline=True)
+    embed.add_field(name="Une joli poto", value="</bellebitte:1046436215840321589>", inline=True)
     embed.add_field(name="comme son nom l'indique, bonne nuit", value="</bonnenuit:1046436215840321590>", inline=True)
     embed.add_field(name="Qu'est'ce qu'on dit ?", value="</bonappetit:1046436215840321591>", inline=True)
     embed.add_field(name="Invasion de chèvres en cours", value="</chèvrests:1046436215840321592>", inline=True)
@@ -478,7 +498,6 @@ async def help(ctx):
     embed.add_field(name="Oups j'ai oublié ma couche", value="</pissepartout:1046436215840321593>", inline=True)
     embed.add_field(name="Présidente de la Région Ile-de-France", value="</pecresse:1046436215840321587>", inline=True)
     embed.add_field(name="Message anonyme bonsoir", value="</say:1045103244638179351>", inline=True)
-    embed.add_field(name="*ze veut voir des trains qui roulent !*", value="</spot:1046229853533388870>", inline=True)
     embed.add_field(name="oups le compteur est cassé :/ 🥴", value="</mute:1046229853814390867>", inline=True)
     embed.add_field(name="ALERTE MÉTÉO ! *A utiliser qu'en cas d'urgence, tout abus sera sanctionné*", value="</météo:1046544260222165074>", inline=True)
     await ctx.respond(embed=embed)
