@@ -17,10 +17,11 @@ async def on_message(message):
     if message.content == "quoi":
         await message.channel.respond("feur")
 # démarrage
-funFact = ["L'eau mouille", 
-            "Le feu brule", 
+funFact = ["Tu savais que Lowa est le meilleur dev du monde ?",
+            "L'eau ça mouille", 
+            "Le feu ça brule", 
             "Lorsque vous volez, vous ne touchez pas le sol", 
-            "Mon créateur est >Thibaut#4872", 
+            "Mon créateur est Thibaut#4872", 
             "Il n'est pas possible d'aller dans l'espace en restant sur terre", 
             "La terre est ronde",
             "La moitié de 2 est 1",
@@ -64,7 +65,7 @@ class classementmodal(discord.ui.Modal):
         embed.add_field(name="", value=self.children[0].value)
         embed.set_author(name="Poudlard&Co", icon_url="https://images.rtl.fr/~c/2000v2000/rtl/www/1329511-minerva-mcgonagall-maggie-smith.jpg"),
         embed.set_image(url="https://media.tenor.com/m1itqPF42hcAAAAC/10points-gryffindor-richard-harris.gif")
-        message = await bot.get_channel(int(1062738561939550250)).send(embeds=[embed])
+        message = await bot.get_channel(int(1035894363047346248)).send(embeds=[embed])
         await interaction.response.send_message("Modal envoyé ^^", ephemeral=True, delete_after=3)
 
 # Fun
