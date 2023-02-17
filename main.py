@@ -44,6 +44,15 @@ async def on_ready():
     await bot.get_channel(int(1036600574898086030)).send(embed = embed)
     await bot.change_presence(status=discord.Status.idle, activity = discord.Activity(type = discord.ActivityType.watching, name ="la version " + version))
 
+@bot.slash_command(name="statut")
+async def statut(ctx):
+    channel = bot.get_channel(1036600574898086030)
+    embed = discord.Embed(title = "Statut du Bot", description = "Je suis désormais en Ligne ! ✅", color=0x10ef00)
+    embed.add_field(name = "Ma version actuelle est la version " + version, value ="")
+    embed.set_footer(text = choice(funFact))
+    await bot.get_channel(int(1036600574898086030)).send(embed = embed)
+    await bot.change_presence(status=discord.Status.idle, activity = discord.Activity(type = discord.ActivityType.watching, name ="la version " + version))
+
 @bot.slash_command(name="ping")
 async def ping(ctx):
   await ctx.respond("Pong! 🏓")
