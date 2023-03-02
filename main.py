@@ -141,7 +141,7 @@ async def bonnenuit(ctx):
         color=0x56B3E5, 
     )
     embed.set_author(name="prout", icon_url="https://images-ext-1.discordapp.net/external/PMCR648tV3gBBKB_mNbEGIXj1XKIXFdYVKmJbGLzKbg/https/i.imgur.com/f8wFfNZ.png")
-    embed.set_image(url="https://media.tenor.com/s_O407o0_K0AAAAC/bonne-nuit-les-petits-good-night.gif")
+    embed.set_image(url="https://cdn.discordapp.com/attachments/1071513196478877736/1080808112824533073/ep_goodnight.gif")
     await ctx.respond(embed=embed) # respond the embed with some text
 
 @bot.slash_command(name="pointmeteo")
@@ -171,7 +171,18 @@ async def bonappetit(ctx):
         color=0x56B3E5, 
     )
     embed.set_author(name="prout", icon_url="https://images-ext-1.discordapp.net/external/PMCR648tV3gBBKB_mNbEGIXj1XKIXFdYVKmJbGLzKbg/https/i.imgur.com/f8wFfNZ.png")
-    embed.set_image(url="https://i.imgur.com/fxRfx31.gif")
+    embed.set_image(url="https://media.discordapp.net/attachments/1071513196478877736/1080815493549674557/ep_drinking.gif")
+    await ctx.respond(embed=embed) # respond the embed with some text
+
+@bot.slash_command(name="autravail", description = "Citation préférée du Taupin en chef 🫡")
+async def autravail(ctx):
+    embed = discord.Embed(
+        title="Ici ça travaille !",
+        description="",
+        color=0x56B3E5, 
+    )
+    embed.set_author(name="prout", icon_url="https://images-ext-1.discordapp.net/external/PMCR648tV3gBBKB_mNbEGIXj1XKIXFdYVKmJbGLzKbg/https/i.imgur.com/f8wFfNZ.png")
+    embed.set_image(url="https://media.discordapp.net/attachments/1071513196478877736/1080815460800536596/ep_working.gif")
     await ctx.respond(embed=embed) # respond the embed with some text
 
 @bot.slash_command(name="chèvrests", description = "Nous entrons dans la zone défendue farouchement par les chèvres de la TS !")
@@ -247,7 +258,7 @@ async def say(ctx, message: discord.Option(str)):
 
 @bot.slash_command(name="grève")
 async def greve(ctx):
-    await ctx.respond("https://tenor.com/view/minions-protest-raised-fist-strike-union-gif-11882264")
+    await ctx.respond("https://cdn.discordapp.com/attachments/1071513196478877736/1080808113160069152/ep_shouting.gif")
 
 @bot.slash_command(name="af")
 async def af(ctx):
