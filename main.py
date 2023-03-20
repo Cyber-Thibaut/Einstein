@@ -4,7 +4,7 @@ import os # default module
 from dotenv import load_dotenv
 from random import choice
 
-version = "1.2.3"
+version = "1.2.4"
 bot = discord.Bot()
 
 liste = ['Absence de conducteur', 'Régulation Trafic', 'Panne Aiguillage', 'Panne Train Ligne', 'Retard lors du Trajet Précédent', 'Travaux sur la voie je peux pas écraser les ouvriers donc bah tu patiente et TU FERME TA BOUCHE !', 'Suspension trafic', 'Attente Correspondance', 'Arrêt Voyageur Prolongé', 'Intervention Police A Bord', "Pablo Escobar est votre conducteur aujourd'hui entre Lyon et Paris profitez en ;)", "La porte arrière de votre train ne sera pas en face du quai en gare de Tarare, merci de vous dirigez vers un autre accès si vous déscendez dans cette gare", "En raison d'une régulation, votre Intercité aura un retard de 15 minutes pour laisser passer un TGV", "Le menu de la cantine est Burger Frites aujourd'hui", "Il pleut sur Clermont", "Les débats sont interdits dans nos trains", "Ouverture de la gare du Listenbourg dirigée par Adrien", 'En raison de la traversée de la rue du 1er mai par les cartons migrateur, la ligne 1 est déviée.', "En raison d'un séisme de magnitude 10 due à la faim de votre conducteur, le train à déraillé", 'Le Conducteur Alex Roule comme un crabe sur les voies, pour plus de sécurité aucun autre train ne circule', 'destruction du train devant', 'divagation de chèvres', 'Retard à la préparation de la boîte repas', 'Les plats de la cantine sont froids', 'Tout est fermé','La pizza du conducteur est arrivée en retard']
