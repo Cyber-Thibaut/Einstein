@@ -129,7 +129,7 @@ async def bellebite(ctx):
         description="",
         color=0x56B3E5, 
     )
-    embed.set_author(name="prout", icon_url="https://images-ext-1.discordapp.net/external/PMCR648tV3gBBKB_mNbEGIXj1XKIXFdYVKmJbGLzKbg/https/i.imgur.com/f8wFfNZ.png")
+    embed.set_author(name="coucou", icon_url="https://images-ext-1.discordapp.net/external/PMCR648tV3gBBKB_mNbEGIXj1XKIXFdYVKmJbGLzKbg/https/i.imgur.com/f8wFfNZ.png")
     embed.set_image(url="https://i.ibb.co/bFZXGGX/IMG-20221123-182001-HDR.jpg")
     await ctx.respond(embed=embed) # respond the embed with some text
 
